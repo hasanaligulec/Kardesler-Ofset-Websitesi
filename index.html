@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardeşler Ofset & Matbaa - Profesyonel Matbaa Hizmetleri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1503694978374-8a2fa686963a?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #333;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translate(6px);
+        }
+        
+        .open .hamburger-middle {
+            display: none;
+        }
+        
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translate(-6px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="navbar fixed w-full z-50 py-4 px-6 lg:px-12">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold text-blue-100 flex items-center">
+                    <i class="fas fa-print mr-2"></i>
+                  <span>
+                      <span class="text-yellow-600">Kardeşler</span> 
+                       <span class="text-blue-300">Ofset</span>
+                        </span>
+
+                </a>
+            </div>
+            
+            <div class="hidden lg:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-orange-500 font-medium">Ana Sayfa</a>
+                <a href="#services" class="text-gray-800 hover:text-orange-500 font-medium">Hizmetlerimiz</a>
+                <a href="#about" class="text-gray-800 hover:text-orange-500 font-medium">Hakkımızda</a>
+                <a href="#portfolio" class="text-gray-800 hover:text-orange-500 font-medium">Portföy</a>
+                <a href="#contact" class="text-gray-800 hover:text-orange-500 font-medium">İletişim</a>
+            </div>
+            
+            <div class="hidden lg:block">
+                <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition duration-300">Teklif Al</a>
+            </div>
+            
+            <div class="lg:hidden">
+                <button id="menu-btn" class="hamburger focus:outline-none">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+        </div>
+        
+        <div id="menu" class="hidden lg:hidden absolute inset-x-0 top-20 bg-white shadow-lg rounded-lg mx-4 py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-gray-800 hover:text-orange-500 font-medium">Ana Sayfa</a>
+                <a href="#services" class="text-gray-800 hover:text-orange-500 font-medium">Hizmetlerimiz</a>
+                <a href="#about" class="text-gray-800 hover:text-orange-500 font-medium">Hakkımızda</a>
+                <a href="#portfolio" class="text-gray-800 hover:text-orange-500 font-medium">Portföy</a>
+                <a href="#contact" class="text-gray-800 hover:text-orange-500 font-medium">İletişim</a>
+                <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium text-center transition duration-300">Teklif Al</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-6 lg:px-12 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Profesyonel <span class="text-orange-400">Matbaa</span> Hizmetleri</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">30 yılı aşkın tecrübemizle, en kaliteli baskı çözümlerini sunuyoruz. İhtiyaçlarınıza özel çözümler üretiyoruz.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-medium text-lg transition duration-300">Hizmetlerimiz</a>
+                <a href="#contact" class="bg-transparent hover:bg-white hover:text-gray-900 border-2 border-white text-white px-8 py-3 rounded-full font-medium text-lg transition duration-300">İletişim</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hizmetlerimiz</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">Yüksek kaliteli baskı çözümleriyle işletmenizin görsel iletişim ihtiyaçlarını karşılıyoruz.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-gray-50 p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Ofset Baskı</h3>
+                    <p class="text-gray-600">Yüksek adetli baskı ihtiyaçlarınız için profesyonel ofset baskı çözümleri sunuyoruz.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-digital-tachograph"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Dijital Baskı</h3>
+                    <p class="text-gray-600">Hızlı teslimat gerektiren düşük adetli baskılarınız için dijital baskı hizmeti.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Ambalaj Baskı</h3>
+                    <p class="text-gray-600">Ürünlerinizin değerini artıracak özel ambalaj tasarımları ve baskıları.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Kitap & Dergi Baskı</h3>
+                    <p class="text-gray-600">Profesyonel kitap ve dergi baskı hizmetleri ile yayıncılık sektörüne destek.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Kartvizit & Broşür</h3>
+                    <p class="text-gray-600">Kurumsal kimliğinizi yansıtacak profesyonel kartvizit ve broşür baskıları.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Kesim & Kırım</h3>
+                    <p class="text-gray-600">Baskı sonrası kesim, kırım ve diğer bitim işlemleri için profesyonel hizmet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="https://images.unsplash.com/photo-1649336044348-01af0934e610?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kardeşler Ofset Matbaa" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">30 Yıllık Tecrübe</h2>
+                    <div class="w-20 h-1 bg-orange-500 mb-6"></div>
+                    <p class="text-gray-600 mb-6">1993 yılından bu yana matbaa sektöründe hizmet veren firmamız, sürekli gelişen teknolojiyi takip ederek müşterilerine en kaliteli hizmeti sunmayı ilke edinmiştir.</p>
+                    <p class="text-gray-600 mb-8">Uzman kadromuz ve son teknoloji makinelerimizle, her türlü baskı ihtiyacınıza çözüm üretiyoruz. Müşteri memnuniyetini her şeyin üzerinde tutan anlayışımızla, sizlere hizmet vermekten gurur duyuyoruz.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="text-orange-500 text-xl mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Kaliteli Malzeme</h4>
+                                <p class="text-gray-600">En iyi hammaddeleri kullanıyoruz</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-orange-500 text-xl mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Uzman Ekip</h4>
+                                <p class="text-gray-600">Deneyimli ve profesyonel kadro</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-orange-500 text-xl mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Hızlı Teslimat</h4>
+                                <p class="text-gray-600">Zamanında ve eksiksiz teslimat</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-orange-500 text-xl mr-3 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Uygun Fiyat</h4>
+                                <p class="text-gray-600">Rekabetçi fiyat politikası</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-medium transition duration-300">Bizimle İletişime Geçin</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Çalışmalarımız</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">Gerçekleştirdiğimiz bazı projeleri inceleyebilirsiniz</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative group overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1560278674-4a17b808730a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kitap Baskı" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Kitap Baskı</h3>
+                            <p>Yayınevi için 5000 adet kitap baskısı</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=1053&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ambalaj Baskı" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Ambalaj Baskı</h3>
+                            <p>Sağlık firması için özel ambalaj tasarımı</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1599590984817-0c15f31b1fa5?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kartvizit" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Kurumsal Kimlik</h3>
+                            <p>Şirket için kartvizit ve antetli baskılar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1482876555840-f31c5ebbff1c?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dergi Baskı" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Dergi Baskı</h3>
+                            <p>Aylık 10.000 adet dergi baskısı</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1656379817721-774050a70dd0?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Broşür" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Tanıtım Broşürü</h3>
+                            <p>Fuarlar için özel tasarım broşürler</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg shadow-md">
+                    <img src="https://plus.unsplash.com/premium_photo-1682147377676-f33fa2cc20eb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Özel Baskı" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Özel Baskılar</h3>
+                            <p>Etiket ve özel ambalaj çözümleri</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-medium transition duration-300">Daha Fazla Bilgi İçin İletişim</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Müşteri Yorumları</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">Müşterilerimizin bizim hakkımızda söyledikleri</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-orange-500 text-2xl mr-2">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="text-gray-800 font-medium">Yağız Eren Birinci</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">Çok güzel bi işletme tavsiye ederim.</p>
+                    <div class="flex items-center">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-orange-500 text-2xl mr-2">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="text-gray-800 font-medium">Muharrem Bayraker</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">Kaliteli saygın bir işyeri.</p>
+                    <div class="flex items-center">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-orange-500 text-2xl mr-2">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="text-gray-800 font-medium">Bünyamin Gürel</div>
+                    </div>
+                    <p class="text-gray-600 mb-6">İyi hizmet veriyor.</p>
+                    <div class="flex items-center">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">İletişim</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">Bize ulaşın, projeniz için en uygun çözümü birlikte oluşturalım</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Adınız</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Adınız">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-gray-700 font-medium mb-2">Firma Adı</label>
+                                <input type="text" id="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Firma Adı (Opsiyonel)">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">E-posta</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="E-posta Adresiniz">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Telefon</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Telefon Numaranız">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Hizmet Türü</label>
+                            <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                <option value="">Hizmet Seçiniz</option>
+                                <option value="offset">Ofset Baskı</option>
+                                <option value="digital">Dijital Baskı</option>
+                                <option value="packaging">Ambalaj Baskı</option>
+                                <option value="book">Kitap & Dergi Baskı</option>
+                                <option value="business">Kartvizit & Broşür</option>
+                                <option value="finishing">Kesim & Kırım</option>
+                                <option value="other">Diğer</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mesajınız</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Projeniz hakkında detaylı bilgi verirseniz daha hızlı yanıt verebiliriz"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-medium transition duration-300">Teklif İste</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">İletişim Bilgileri</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Adres</h4>
+                                    <p class="text-gray-600">Pazar, Şeyh Hamza Sk. No:25, 55020 İlkadım/Samsun</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Telefon</h4>
+                                    <p class="text-gray-600">0362 432 06 88
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">E-posta</h4>
+                                    <p class="text-gray-600">kardeslerofset55@hotmail.com
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Çalışma Saatleri</h4>
+                                    <p class="text-gray-600">Pazartesi - Cumartesi: 09:00 - 18:00<br>Pazar: Kapalı</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-800 mb-4">Sosyal Medya</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/p/Karde%C5%9Fler-Ofset-Samsun-100064270024469/" target="_blank" class="text-gray-600 hover:text-orange-500 text-xl"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/kardesler_ofset_samsun/" target="_blank" class="text-gray-600 hover:text-orange-500 text-xl"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.6452329024055!2d36.32721221186857!3d41.294824971192256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x408877bdef1b7dff%3A0x81d1ce98e3aed0c8!2sKarde%C5%9Fler%20Ofset!5e0!3m2!1str!2str!4v1754379586501!5m2!1str!2str"  width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="text-2xl font-bold text-white flex items-center mb-4">
+                        <i class="fas fa-print mr-2"></i>
+                        <span>Kardeşler <span class="text-orange-500">Ofset</span></span>
+                    </a>
+                    <p class="text-gray-400 mb-4">30 yılı aşkın tecrübemizle en kaliteli baskı hizmetlerini sunuyoruz.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/p/Karde%C5%9Fler-Ofset-Samsun-100064270024469/"  target="_blank" class="text-gray-400 hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/kardesler_ofset_samsun/" target="_blank" class="text-gray-400 hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Hızlı Linkler</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-orange-500 transition duration-300">Ana Sayfa</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-orange-500 transition duration-300">Hizmetlerimiz</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-orange-500 transition duration-300">Hakkımızda</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-orange-500 transition duration-300">Portföy</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-orange-500 transition duration-300">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Hizmetlerimiz</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition duration-300">Ofset Baskı</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition duration-300">Dijital Baskı</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition duration-300">Ambalaj Baskı</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition duration-300">Kitap & Dergi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition duration-300">Kartvizit & Broşür</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">İletişim</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-orange-500 mt-1 mr-2"></i>
+                            <span>Pazar, Şeyh Hamza Sk. No:25, 55020 İlkadım/Samsun</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-orange-500 mr-2"></i>
+                            <span>0362 432 06 88</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-orange-500 mr-2"></i>
+                            <span>kardeslerofset55@hotmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Kardeşler Ofset & Matbaa. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('open');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+        
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+            }
+            
+            // Back to Top Button
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    if (menuBtn.classList.contains('open')) {
+                        menuBtn.classList.remove('open');
+                        menu.classList.add('hidden');
+                        menu.classList.remove('flex');
+                    }
+                }
+            });
+        });
+        
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+
+                alert('Teşekkür ederiz! Mesajınız başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.');
+                
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
